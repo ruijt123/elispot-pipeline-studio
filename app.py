@@ -21,7 +21,7 @@ from pipeline import ELISpotPipeline  # noqa: E402
 
 st.set_page_config(
     page_title="ELISpot Pipeline Studio",
-    page_icon="馃敩",
+    page_icon="🔬",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -103,18 +103,18 @@ def parse_pages(text: str) -> list[int] | None:
     if not text:
         return None
     pages: set[int] = set()
-    for part in re.split(r"[,锛孿s]+", text):
+    for part in re.split(r"[,，\s]+", text):
         if not part:
             continue
         if "-" in part:
             start, end = (int(x) for x in part.split("-", 1))
             if start < 1 or end < start:
-                raise ValueError(f"鏃犳晥椤电爜鑼冨洿锛歿part}")
+                raise ValueError(f"无效页码范围：{part}")
             pages.update(range(start, end + 1))
         else:
             value = int(part)
             if value < 1:
-                raise ValueError("椤电爜蹇呴』浠?1 寮€濮?)
+                raise ValueError("页码必须从 1 开始")
             pages.add(value)
     return sorted(pages)
 
@@ -151,9 +151,9 @@ def zip_directory(root: Path) -> bytes:
 def show_stage1(run_root: Path) -> None:
     images = sorted((run_root / "stage1").glob("page_*/page.png"))
     if not images:
-        st.info("娌℃湁鎵惧埌 Stage 1 椤甸潰鍥惧儚銆?)
+        st.info("没有找到 Stage 1 页面图像。")
         return
-    st.markdown("#### Stage 1 路 涓昏鏂囬〉闈?)
+    st.markdown("#### Stage 1 · 主论文页面")
     columns = st.columns(min(3, len(images)))
     for index, image_path in enumerate(images):
         columns[index % len(columns)].image(str(image_path), caption=image_path.parent.name, use_container_width=True)
@@ -162,16 +162,16 @@ def show_stage1(run_root: Path) -> None:
 def show_stage3(run_root: Path) -> None:
     manifest = read_csv_if_present(run_root / "stage3" / "stage3_selected_heatmap_context_manifest.csv")
     if manifest is None:
-        st.info("娌℃湁鎵惧埌 Stage 3 鐑浘璇嗗埆缁撴灉銆?)
+        st.info("没有找到 Stage 3 热图识别结果。")
         return
-    st.markdown("#### Stage 3 路 閫変腑鐨勭儹鍥惧尯鍩?)
+    st.markdown("#### Stage 3 · 选中的热图区域")
     display_cols = [c for c in ["figure_unit_id", "candidate_id", "ai_detected_panel_id", "ai_confidence", "ai_reason"] if c in manifest]
     st.dataframe(manifest[display_cols], use_container_width=True, hide_index=True)
     image_cols = st.columns(2)
     for index, row in manifest.iterrows():
         path = Path(str(row.get("selected_context_path", "")))
         if path.exists():
-            caption = f"{row.get('figure_unit_id')} 路 panel {row.get('ai_detected_panel_id', 'Not specified')}"
+            caption = f"{row.get('figure_unit_id')} · panel {row.get('ai_detected_panel_id', 'Not specified')}"
             image_cols[index % 2].image(str(path), caption=caption, use_container_width=True)
 
 
@@ -179,13 +179,13 @@ def show_stage4(run_root: Path) -> None:
     summary = read_csv_if_present(run_root / "stage4" / "Stage4_Panel_Summary.csv")
     records = read_csv_if_present(run_root / "stage4" / "Stage4_Cell_Records.csv")
     if summary is None or records is None:
-        st.info("娌℃湁鎵惧埌 Stage 4 鐑浘鏁板€肩粨鏋溿€?)
+        st.info("没有找到 Stage 4 热图数值结果。")
         return
-    st.markdown("#### Stage 4 路 鐑浘鐭╅樀涓庢暟鍊?)
+    st.markdown("#### Stage 4 · 热图矩阵与数值")
     summary_cols = [c for c in ["Figure_Unit_ID", "Panel_ID", "Heatmap_Subtype", "Axis_X_Values", "Axis_Y_Values", "Axis_Alignment_Confidence"] if c in summary]
     st.dataframe(summary[summary_cols], use_container_width=True, hide_index=True)
     panel_values = records["Panel_ID"].dropna().astype(str).unique().tolist() if "Panel_ID" in records else []
-    selected_panel = st.selectbox("鏌ョ湅闈㈡澘", panel_values, key="stage4_panel") if panel_values else None
+    selected_panel = st.selectbox("查看面板", panel_values, key="stage4_panel") if panel_values else None
     panel_df = records[records["Panel_ID"].astype(str).eq(selected_panel)] if selected_panel else records
     value_cols = [c for c in ["Panel_ID", "Row_Index", "Col_Index", "X_Axis_Value", "Y_Axis_Value", "Epitope_ID", "ELISpot_Value", "ELISpot_Value_Text"] if c in panel_df]
     st.dataframe(panel_df[value_cols], use_container_width=True, hide_index=True, height=360)
@@ -195,14 +195,14 @@ def show_stage5(run_root: Path) -> None:
     reference = read_csv_if_present(run_root / "stage5" / "Epitope_Reference_Table_FINAL.csv")
     audit = read_csv_if_present(run_root / "stage5" / "Stage5_Row_Audit.csv")
     if reference is None:
-        st.info("娌℃湁鎵惧埌 Stage 5 琛ュ厖琛ㄦ牸缁撴灉銆?)
+        st.info("没有找到 Stage 5 补充表格结果。")
         return
-    st.markdown("#### Stage 5 路 琛ュ厖鏉愭枡琛ㄦ牸鎻愬彇")
+    st.markdown("#### Stage 5 · 补充材料表格提取")
     core = [c for c in ["Epitope_ID", "Epitope_Gene", "Epitope_Mutation", "Epitope_Sequence", "MHC_Class", "Vaccine_or_Antigen_Set", "Source_Sheet", "Source_Page", "Source_Row"] if c in reference]
     st.dataframe(reference[core], use_container_width=True, hide_index=True, height=360)
     if audit is not None and "Status" in audit:
         counts = audit["Status"].value_counts().rename_axis("Status").reset_index(name="Rows")
-        st.caption("姣忎釜鏉ユ簮琛岄兘鏈夋帴鍙楁垨璺宠繃璁板綍锛涜烦杩囧師鍥犱繚瀛樺湪瀹¤鏂囦欢涓€?)
+        st.caption("每个来源行都有接受或跳过记录；跳过原因保存在审计文件中。")
         st.dataframe(counts, hide_index=True)
 
 
@@ -210,15 +210,15 @@ def show_stage6(run_root: Path) -> None:
     final = read_csv_if_present(run_root / "stage6" / "ELISpot_Data.csv")
     qc_path = run_root / "stage6" / "Stage6_QC_Summary.json"
     if final is None:
-        st.info("娌℃湁鎵惧埌 Stage 6 鏈€缁堢粨鏋溿€?)
+        st.info("没有找到 Stage 6 最终结果。")
         return
-    st.markdown("#### Stage 6 路 鏈€缁?ELISpot 鏁版嵁")
+    st.markdown("#### Stage 6 · 最终 ELISpot 数据")
     metrics = st.columns(4)
     qc = json.loads(qc_path.read_text(encoding="utf-8")) if qc_path.exists() else {}
-    metrics[0].metric("鏈€缁堣褰?, len(final))
-    metrics[1].metric("鍙傝€冭〃鍖归厤", qc.get("reference_matched_rows", "鈥?))
-    metrics[2].metric("鏈尮閰?, qc.get("reference_unmatched_rows", "鈥?))
-    metrics[3].metric("閲嶅璁板綍", qc.get("duplicate_rows_by_main_key", "鈥?))
+    metrics[0].metric("最终记录", len(final))
+    metrics[1].metric("参考表匹配", qc.get("reference_matched_rows", "—"))
+    metrics[2].metric("未匹配", qc.get("reference_unmatched_rows", "—"))
+    metrics[3].metric("重复记录", qc.get("duplicate_rows_by_main_key", "—"))
     st.dataframe(final, use_container_width=True, hide_index=True, height=420)
 
 
@@ -230,26 +230,26 @@ def run_pipeline(paper_upload, supplement_upload, api_key: str, pages: list[int]
     supplement_path = save_upload(supplement_upload, input_dir / f"supplement{Path(supplement_upload.name).suffix.lower()}")
     runner = ELISpotPipeline(paper_path, supplement_path, output_root=workspace / "pipeline_runs", pages=pages, resume=True)
     steps = [
-        ("Stage 1", "瑙ｆ瀽涓昏鏂囬〉闈?, runner._run_stage1),
-        ("Stage 2", "閰嶅鍥句笌鍥炬敞", runner._run_stage2),
-        ("Stage 3", "璇嗗埆 ELISpot 鐑浘", runner._run_stage3),
-        ("Stage 3B/3C", "鎭㈠闈㈡澘骞舵彁鍙栧浘娉ㄥ瓧娈?, runner._run_stage3bc),
-        ("Stage 4", "鎻愬彇鐑浘鐭╅樀鏁板€?, runner._run_stage4),
-        ("Stage 5", "鎻愬彇琛ュ厖鏉愭枡琛ㄦ牸", runner._run_stage5),
-        ("Stage 6", "鍚堝苟骞剁敓鎴愭渶缁堢粨鏋?, runner._run_stage6),
+        ("Stage 1", "解析主论文页面", runner._run_stage1),
+        ("Stage 2", "配对图与图注", runner._run_stage2),
+        ("Stage 3", "识别 ELISpot 热图", runner._run_stage3),
+        ("Stage 3B/3C", "恢复面板并提取图注字段", runner._run_stage3bc),
+        ("Stage 4", "提取热图矩阵数值", runner._run_stage4),
+        ("Stage 5", "提取补充材料表格", runner._run_stage5),
+        ("Stage 6", "合并并生成最终结果", runner._run_stage6),
     ]
-    progress = st.progress(0, text="鍑嗗杩愯")
-    status = st.status("ELISpot pipeline 姝ｅ湪杩愯", expanded=True)
+    progress = st.progress(0, text="准备运行")
+    status = st.status("ELISpot pipeline 正在运行", expanded=True)
     old_key = os.environ.get("DASHSCOPE_API_KEY")
     os.environ["DASHSCOPE_API_KEY"] = api_key.strip()
     try:
         for index, (stage, description, function) in enumerate(steps, 1):
-            status.write(f"**{stage}** 路 {description}")
+            status.write(f"**{stage}** · {description}")
             function()
-            progress.progress(index / len(steps), text=f"{stage} 瀹屾垚")
+            progress.progress(index / len(steps), text=f"{stage} 完成")
         runner.manifest["status"] = "complete"
         runner.manifest_path.write_text(json.dumps(runner.manifest, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
-        status.update(label="鍏ㄩ儴闃舵瀹屾垚", state="complete", expanded=False)
+        status.update(label="全部阶段完成", state="complete", expanded=False)
     finally:
         if old_key is None:
             os.environ.pop("DASHSCOPE_API_KEY", None)
@@ -263,59 +263,59 @@ st.markdown(
     <div class="hero">
       <div class="eyebrow">Reproducible immunology workflow</div>
       <h1>ELISpot Pipeline Studio</h1>
-      <p>涓婁紶璁烘枃涓庤ˉ鍏呮潗鏂欙紝浠庡浘鍍忚瘑鍒€佺儹鍥炬暟鍊兼彁鍙栧埌 epitope 琛ㄦ牸鍖归厤锛屼竴娆¤繍琛岀敓鎴愬彲杩芥函鐨?cell-level 鏁版嵁銆?/p>
-      <div class="hero-badges"><span>6 涓鐞嗛樁娈?/span><span>PDF / Excel / CSV</span><span>鍏ㄨ繃绋嬪彲瀹¤</span><span>缁撴灉鍙笅杞?/span></div>
+      <p>上传论文与补充材料，从图像识别、热图数值提取到 epitope 表格匹配，一次运行生成可追溯的 cell-level 数据。</p>
+      <div class="hero-badges"><span>6 个处理阶段</span><span>PDF / Excel / CSV</span><span>全过程可审计</span><span>结果可下载</span></div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown('<div class="section-kicker">Workflow</div><div class="section-title">浠庡師濮嬫枃鐚埌缁撴瀯鍖栨暟鎹?/div><div class="section-copy">鍏抽敭涓棿缁撴灉浼氬湪杩愯鍚庢寜闃舵灞曠ず锛屼究浜庝汉宸ユ牳楠屻€?/div>', unsafe_allow_html=True)
+st.markdown('<div class="section-kicker">Workflow</div><div class="section-title">从原始文献到结构化数据</div><div class="section-copy">关键中间结果会在运行后按阶段展示，便于人工核验。</div>', unsafe_allow_html=True)
 st.markdown(
     """
     <div class="stage-grid">
-      <div class="stage-card"><div class="stage-no">01</div><strong>椤甸潰瑙ｆ瀽</strong><small>娓叉煋鎸囧畾璁烘枃椤?/small></div>
-      <div class="stage-card"><div class="stage-no">02</div><strong>鍥炬枃閰嶅</strong><small>瀹氫綅鍥句笌鍥炬敞</small></div>
-      <div class="stage-card"><div class="stage-no">03</div><strong>鐑浘璇嗗埆</strong><small>绛涢€?ELISpot 闈㈡澘</small></div>
-      <div class="stage-card"><div class="stage-no">04</div><strong>鏁板€兼彁鍙?/strong><small>鎭㈠鐭╅樀涓庡潗鏍?/small></div>
-      <div class="stage-card"><div class="stage-no">05</div><strong>琛ㄦ牸瑙ｆ瀽</strong><small>缁熶竴 epitope 瀛楁</small></div>
-      <div class="stage-card"><div class="stage-no">06</div><strong>鍚堝苟璐ㄦ帶</strong><small>鐢熸垚鏈€缁堟暟鎹?/small></div>
+      <div class="stage-card"><div class="stage-no">01</div><strong>页面解析</strong><small>渲染指定论文页</small></div>
+      <div class="stage-card"><div class="stage-no">02</div><strong>图文配对</strong><small>定位图与图注</small></div>
+      <div class="stage-card"><div class="stage-no">03</div><strong>热图识别</strong><small>筛选 ELISpot 面板</small></div>
+      <div class="stage-card"><div class="stage-no">04</div><strong>数值提取</strong><small>恢复矩阵与坐标</small></div>
+      <div class="stage-card"><div class="stage-no">05</div><strong>表格解析</strong><small>统一 epitope 字段</small></div>
+      <div class="stage-card"><div class="stage-no">06</div><strong>合并质控</strong><small>生成最终数据</small></div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
 with st.sidebar:
-    st.markdown("### 杩愯鎺у埗鍙?)
-    st.caption("瀵嗛挜浠呬繚瀛樺湪褰撳墠杩愯杩涚▼鐨勫唴瀛樹腑锛屼笉浼氬啓鍏?Notebook 鎴栬緭鍑烘枃浠躲€?)
-    api_key = st.text_input("DashScope API Key", type="password", placeholder="sk-鈥?, help="鐢ㄤ簬鍥惧儚涓庤〃鏍肩殑 AI 璇嗗埆姝ラ")
+    st.markdown("### 运行控制台")
+    st.caption("密钥仅保存在当前运行进程的内存中，不会写入 Notebook 或输出文件。")
+    api_key = st.text_input("DashScope API Key", type="password", placeholder="sk-…", help="用于图像与表格的 AI 识别步骤")
     page_mode = st.selectbox(
-        "涓昏鏂囧鐞嗚寖鍥?,
-        ["All锛堟暣绡囪鏂囷級", "Other锛堟寚瀹氶〉鐮侊級"],
+        "主论文处理范围",
+        ["All（整篇论文）", "Other（指定页码）"],
         index=1,
-        help="閫夋嫨 All 澶勭悊鍏ㄦ枃锛涢€夋嫨 Other 鍚庡彲濉啓鍗曢〉銆佸涓〉鐮佹垨杩炵画鑼冨洿銆?,
+        help="选择 All 处理全文；选择 Other 后可填写单页、多个页码或连续范围。",
     )
     if page_mode.startswith("Other"):
         page_text = st.text_input(
-            "鎸囧畾椤电爜",
+            "指定页码",
             value="3,4",
-            placeholder="渚嬪锛?,4 鎴?3-5",
-            help="澶氫釜椤电爜鐢ㄩ€楀彿鍒嗛殧锛涜繛缁〉鐮佸彲鍐欐垚 3-5銆?,
+            placeholder="例如：3,4 或 3-5",
+            help="多个页码用逗号分隔；连续页码可写成 3-5。",
         )
     else:
         page_text = ""
-        st.caption("灏嗗鐞嗕富璁烘枃鐨勫叏閮ㄩ〉闈€?)
+        st.caption("将处理主论文的全部页面。")
     st.divider()
-    st.markdown("**蹇€熸祴璇曞缓璁?*")
-    st.info("鍏堥€夋嫨鍖呭惈 ELISpot 鍥剧殑 2鈥? 椤点€傝ˉ鍏呮潗鏂欎粛浼氬畬鏁存鏌ワ紝浠ュ畾浣嶅弬鑰冭〃銆?)
-    st.caption("鏈伐鍏烽€傚悎鏈湴鎴栧彈淇′换鐨勫崟鐢ㄦ埛鐜銆?)
+    st.markdown("**快速测试建议**")
+    st.info("先选择包含 ELISpot 图的 2–3 页。补充材料仍会完整检查，以定位参考表。")
+    st.caption("本工具适合本地或受信任的单用户环境。")
 
-st.markdown('<div class="section-kicker">Inputs</div><div class="section-title">鍑嗗鏈鍒嗘瀽</div><div class="section-copy">涓昏鏂囪礋璐ｅ浘鍍忔暟鎹紝琛ュ厖鏉愭枡璐熻矗 epitope 鍙傝€冧俊鎭€?/div>', unsafe_allow_html=True)
+st.markdown('<div class="section-kicker">Inputs</div><div class="section-title">准备本次分析</div><div class="section-copy">主论文负责图像数据，补充材料负责 epitope 参考信息。</div>', unsafe_allow_html=True)
 left, right = st.columns(2, gap="large")
 with left:
-    paper_upload = st.file_uploader("鈶?涓婁紶涓昏鏂?PDF", type=["pdf"], help="寤鸿鍏堜笂浼犲彧鍚洰鏍囬〉鐨?PDF 杩涜蹇€熸祴璇?)
+    paper_upload = st.file_uploader("① 上传主论文 PDF", type=["pdf"], help="建议先上传只含目标页的 PDF 进行快速测试")
 with right:
-    supplement_upload = st.file_uploader("鈶?涓婁紶琛ュ厖鏉愭枡", type=["pdf", "xlsx", "xls", "csv", "tsv"], help="鏀寔鏂囧瓧鍨?PDF 涓庡父瑙佽〃鏍兼牸寮?)
+    supplement_upload = st.file_uploader("② 上传补充材料", type=["pdf", "xlsx", "xls", "csv", "tsv"], help="支持文字型 PDF 与常见表格格式")
 
 try:
     pages = parse_pages(page_text)
@@ -335,16 +335,16 @@ def ready_row(done: bool, text: str) -> str:
     return f'<div class="ready-row"><span class="{dot}"></span>{text}</div>'
 
 st.markdown(
-    '<div class="ready-box"><strong>杩愯鍓嶆鏌?/strong>'
-    + ready_row(paper_ok, f"涓昏鏂囷細{paper_upload.name}" if paper_ok else "绛夊緟涓婁紶涓昏鏂?PDF")
-    + ready_row(supplement_ok, f"琛ュ厖鏉愭枡锛歿supplement_upload.name}" if supplement_ok else "绛夊緟涓婁紶琛ュ厖鏉愭枡")
-    + ready_row(key_ok, "API Key 宸插氨缁? if key_ok else "绛夊緟鍦ㄥ乏渚у～鍐?API Key")
-    + ready_row(page_error is None, f"澶勭悊椤电爜锛歿', '.join(map(str, pages)) if pages else '鏁寸瘒璁烘枃'}")
+    '<div class="ready-box"><strong>运行前检查</strong>'
+    + ready_row(paper_ok, f"主论文：{paper_upload.name}" if paper_ok else "等待上传主论文 PDF")
+    + ready_row(supplement_ok, f"补充材料：{supplement_upload.name}" if supplement_ok else "等待上传补充材料")
+    + ready_row(key_ok, "API Key 已就绪" if key_ok else "等待在左侧填写 API Key")
+    + ready_row(page_error is None, f"处理页码：{', '.join(map(str, pages)) if pages else '整篇论文'}")
     + "</div>",
     unsafe_allow_html=True,
 )
 
-if st.button("寮€濮嬭繍琛?Stage 1鈥?", type="primary", disabled=not ready, use_container_width=True):
+if st.button("开始运行 Stage 1–6", type="primary", disabled=not ready, use_container_width=True):
     try:
         st.session_state["last_run_root"] = str(run_pipeline(paper_upload, supplement_upload, api_key, pages))
     except Exception as exc:
@@ -355,8 +355,8 @@ if run_root_text:
     run_root = Path(run_root_text)
     if run_root.exists():
         st.divider()
-        st.markdown('<div class="section-kicker">Review</div><div class="section-title">杩囩▼鏍搁獙涓庢渶缁堢粨鏋?/div><div class="section-copy">閫愭妫€鏌ヨ鏂囬〉闈€佺儹鍥炬彁鍙栧€笺€佽ˉ鍏呰〃鏍间笌鍚堝苟璐ㄦ帶銆?/div>', unsafe_allow_html=True)
-        tabs = st.tabs(["璁烘枃椤甸潰", "鐑浘璇嗗埆", "鐑浘鏁板€?, "琛ュ厖琛ㄦ牸", "鏈€缁堢粨鏋?, "涓嬭浇"])
+        st.markdown('<div class="section-kicker">Review</div><div class="section-title">过程核验与最终结果</div><div class="section-copy">逐步检查论文页面、热图提取值、补充表格与合并质控。</div>', unsafe_allow_html=True)
+        tabs = st.tabs(["论文页面", "热图识别", "热图数值", "补充表格", "最终结果", "下载"])
         with tabs[0]:
             show_stage1(run_root)
         with tabs[1]:
@@ -370,5 +370,5 @@ if run_root_text:
         with tabs[5]:
             final_xlsx = run_root / "stage6" / "Stage6_Final_ELISpot_Output.xlsx"
             if final_xlsx.exists():
-                st.download_button("涓嬭浇鏈€缁?Excel", final_xlsx.read_bytes(), final_xlsx.name, mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
-            st.download_button("涓嬭浇瀹屾暣瀹¤鍖?ZIP", zip_directory(run_root), "ELISpot_pipeline_results.zip", mime="application/zip", use_container_width=True)
+                st.download_button("下载最终 Excel", final_xlsx.read_bytes(), final_xlsx.name, mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
+            st.download_button("下载完整审计包 ZIP", zip_directory(run_root), "ELISpot_pipeline_results.zip", mime="application/zip", use_container_width=True)
