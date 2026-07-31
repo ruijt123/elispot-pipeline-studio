@@ -123,7 +123,7 @@ def _clean(value: Any) -> str:
     if value is None or (isinstance(value, float) and pd.isna(value)):
         return ""
     text = str(value).replace("\u00ad", "").replace("\ufeff", "")
-    text = text.replace("鈭?, "-").replace("\r", " ").replace("\n", " ")
+    text = text.replace("−", "-").replace("\r", " ").replace("\n", " ")
     return re.sub(r"\s+", " ", text).strip()
 
 
