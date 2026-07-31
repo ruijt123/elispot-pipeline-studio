@@ -62,7 +62,7 @@ def _figure_ids_for_assay(stage2_summary: Path, assay: str) -> list[str]:
     assay_norm = assay.lower()
     aliases = [assay_norm]
     if assay_norm == "elispot":
-        aliases += ["eli spot", "immunospot", "ifn-纬", "ifn-g", "ifn 纬"]
+        aliases += ["eli spot", "immunospot", "ifn-γ", "ifn-g", "ifn γ"]
     selected = []
     for unit in units:
         legend = str(unit.get("full_legend") or unit.get("legend_text") or "").lower()
