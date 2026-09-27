@@ -43,6 +43,9 @@ The 10-panel collection was used during development and is not presented as a
 held-out test set. Original articles, supplements, and publisher figures are
 not redistributed.
 
+The versioned archive is published as the
+[`v1.1-revision-data` GitHub release](https://github.com/ruijt123/elispot-pipeline-studio/releases/tag/v1.1-revision-data).
+
 ## Local Windows launch
 
 ```powershell
