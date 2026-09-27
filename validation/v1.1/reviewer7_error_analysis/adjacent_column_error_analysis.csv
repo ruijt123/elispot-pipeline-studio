@@ -1,0 +1,13 @@
+figure_unit_id,panel_id,offset,matches,comparisons,shift_classification
+page3_figure1,H,0,133,133,other
+page3_figure1,H,-1,36,126,other
+page3_figure1,H,1,36,126,other
+page4_figure1,C,0,39,39,other
+page4_figure1,C,-1,7,36,other
+page4_figure1,C,1,7,36,other
+page4_figure1,F,0,39,39,other
+page4_figure1,F,-1,17,36,other
+page4_figure1,F,1,17,36,other
+page4_figure1,I,0,99,100,other
+page4_figure1,I,-1,19,95,other
+page4_figure1,I,1,19,95,other

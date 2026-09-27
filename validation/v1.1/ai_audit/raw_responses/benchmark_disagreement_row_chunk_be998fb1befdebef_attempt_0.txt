@@ -1,0 +1,59 @@
+{
+  "row_index": 4,
+  "column_start": 7,
+  "column_end": 13,
+  "cells_by_key": {
+    "C07": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C08": {
+      "token_type": "printed_integer",
+      "value_numeric": 1,
+      "value_text": "1",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C09": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C10": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C11": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C12": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C13": {
+      "token_type": "printed_integer",
+      "value_numeric": 6,
+      "value_text": "6",
+      "manual_review": false,
+      "review_reason": ""
+    }
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

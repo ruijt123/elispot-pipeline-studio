@@ -1,0 +1,9 @@
+{
+  "n": 311,
+  "correct": 310,
+  "errors": 1,
+  "accuracy": 0.9967845659163987,
+  "error_rate": 0.003215434083601286,
+  "source_pdf": "<PROJECT_ROOT>\\paper.pdf",
+  "ground_truth_file": "<PROJECT_ROOT>\\reviewer_comment_7_outputs\\manual_cell_validation_from_paper.csv"
+}

@@ -7,3 +7,4 @@ opencv-python-headless>=4.9
 Pillow>=10
 ipython>=8.20
 openai>=1.40
+matplotlib>=3.8

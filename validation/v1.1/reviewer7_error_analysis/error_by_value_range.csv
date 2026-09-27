@@ -1,0 +1,4 @@
+value_range,n,errors,error_rate,insufficient_sample
+high,76,0,0.0,False
+low,167,0,0.0,False
+mid,68,1,0.014705882352941176,False

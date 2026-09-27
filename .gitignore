@@ -1,8 +1,9 @@
 __pycache__/
 *.py[cod]
-.streamlit/secrets.toml
+.ipynb_checkpoints/
 .env
 tool_runs/
 pipeline_runs/
-inputs/
-*.log
+_loader_test/
+_validation_tool_test*/
+dist/

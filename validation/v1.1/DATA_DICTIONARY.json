@@ -1,0 +1,11 @@
+{
+  "version": "v1.1-revision-data",
+  "ground_truth_policy": "Only source-backed or manually transcribed values are used; no ground truth is fabricated.",
+  "confidence_policy": "No numeric confidence threshold is used; qualitative confidence is model_self_reported_confidence.",
+  "colour_policy": "Colour-only heatmap cells are not converted to numeric values.",
+  "proxy_fields": {
+    "text_height_proxy_px": "Connected-component estimate in pixels; not a true font size.",
+    "visual_contrast_proxy": "90th minus 10th grayscale percentile inside a border-trimmed cell.",
+    "cell_area_px2": "Tool-detected cell width multiplied by height in pixels squared."
+  }
+}

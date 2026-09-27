@@ -1,0 +1,11 @@
+benchmark_id,paper_id,figure_id,panel_id,expected_rows,expected_columns,record_count,qwen_calls,numeric_predictions,extraction_outcome,manual_review,qwen_call_units_final_pipeline
+B01,fan_2024,2,H,7,19,133,19,133,qwen_consensus_with_local_refinement,False,27
+B02,fan_2024,3,C,3,13,39,1,39,qwen_consensus_with_local_refinement,False,4
+B03,fan_2024,3,F,3,13,39,1,39,qwen_consensus_with_local_refinement,False,4
+B04,fan_2024,3,I,5,20,100,15,100,qwen_consensus_with_local_refinement,False,13
+B05,braun_2025,2,a,36,7,252,9,9,qwen_coordinate_locked_complete,False,9
+B06,lindner_2025,1,E,20,20,400,0,0,correct_abstention_color_only,False,0
+B07,haars_2021,5,A,16,21,336,16,79,qwen_coordinate_locked_complete,False,16
+B08,zhang_2024,6,C,4,38,152,0,0,correct_abstention_color_only,False,0
+B09,geiger_2020,2,A,16,10,160,0,0,correct_abstention_color_only,False,0
+B10,hhv6_2015,3,B,53,5,265,0,0,correct_abstention_color_only,False,0

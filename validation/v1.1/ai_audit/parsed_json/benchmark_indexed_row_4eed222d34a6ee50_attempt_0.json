@@ -1,0 +1,156 @@
+{
+  "row_index": 9,
+  "column_count": 21,
+  "cells_by_key": {
+    "C00": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C01": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C02": {
+      "token_type": "printed_integer",
+      "value_numeric": 178,
+      "value_text": "178",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C03": {
+      "token_type": "printed_integer",
+      "value_numeric": 159,
+      "value_text": "159",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C04": {
+      "token_type": "printed_integer",
+      "value_numeric": 260,
+      "value_text": "260",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C05": {
+      "token_type": "printed_integer",
+      "value_numeric": 131,
+      "value_text": "131",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C06": {
+      "token_type": "printed_integer",
+      "value_numeric": 126,
+      "value_text": "126",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C07": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C08": {
+      "token_type": "printed_integer",
+      "value_numeric": 175,
+      "value_text": "175",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C09": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C10": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C11": {
+      "token_type": "printed_integer",
+      "value_numeric": 127,
+      "value_text": "127",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C12": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C13": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C14": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C15": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C16": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C17": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C18": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C19": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C20": {
+      "token_type": "dash",
+      "value_numeric": null,
+      "value_text": "-",
+      "manual_review": false,
+      "review_reason": ""
+    }
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

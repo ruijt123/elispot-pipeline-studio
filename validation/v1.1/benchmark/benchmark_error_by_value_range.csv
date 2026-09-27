@@ -1,0 +1,4 @@
+value_range,n,errors,error_rate,insufficient_sample
+"(-0.001, 3.0]",210,0,0.0,False
+"(3.0, 95.0]",90,0,0.0,False
+"(95.0, 1750.0]",99,1,0.010101010101010102,False

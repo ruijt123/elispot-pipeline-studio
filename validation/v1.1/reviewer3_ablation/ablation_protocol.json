@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "A0_qwen_unconstrained_raw": "Qwen infers shape; no OpenCV shape is supplied in the prompt.",
+    "A1_fixed_shape_prompt_raw": "OpenCV shape is supplied; raw Qwen records are evaluated without repair.",
+    "A2_fixed_shape_plus_validation_gate": "A1 plus structural validation; invalid panels are routed to manual review.",
+    "A3_full_structure_constrained": "Fixed shape, validation, existing projection/normalization, and manual-review metadata."
+  },
+  "ground_truth_is_evaluation_only": true,
+  "external_baseline_comparison": false,
+  "unconstrained_qwen_calls_enabled": true,
+  "uses_numeric_confidence_threshold": false
+}

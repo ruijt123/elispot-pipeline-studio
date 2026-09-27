@@ -1,0 +1,11 @@
+benchmark_id,paper_id,figure,panel,expected_cells,stage4_cached_cells,stage4_image_numeric_cells,stage6_cells,stage6_linked_cells,supplementary_numeric_source_cells,printed_source_crosschecks,printed_source_exact_matches,printed_source_false_positive_coordinates,stage6_status,excluded
+B01,fan_2024,2,H,133,133,133,133,133,0,0,0,133,complete,False
+B02,fan_2024,3,C,39,39,39,39,39,0,0,0,39,complete,False
+B03,fan_2024,3,F,39,39,39,39,39,0,0,0,39,complete,False
+B04,fan_2024,3,I,100,100,100,100,100,0,0,0,100,complete,False
+B05,braun_2025,2,a,252,252,9,252,252,232,9,8,1,complete,False
+B06,lindner_2025,1,E,400,400,0,0,0,0,0,0,0,excluded,True
+B07,haars_2021,5,A,336,336,79,0,0,0,0,0,0,excluded,True
+B08,zhang_2024,6,C,152,152,0,152,152,152,0,0,0,complete,False
+B09,geiger_2020,2,A,160,160,0,0,0,0,0,0,0,excluded,True
+B10,hhv6_2015,3,B,265,265,0,265,265,0,0,0,0,complete_row_level_only,False

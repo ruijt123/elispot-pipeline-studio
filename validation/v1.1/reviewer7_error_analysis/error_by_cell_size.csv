@@ -1,0 +1,3 @@
+cell_size_bin,n,errors,error_rate,insufficient_sample,metric,density_bin
+,311,1,0.003215434083601286,False,cell_area_px2,
+,311,1,0.003215434083601286,False,matrix_cell_density,

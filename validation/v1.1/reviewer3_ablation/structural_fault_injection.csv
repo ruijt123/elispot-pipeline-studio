@@ -1,0 +1,7 @@
+fault_case,synthetic_fault_injection,raw_schema_valid,validator_detected_fault,post_normalization_usable,validation_errors
+intact,False,True,False,True,[]
+missing_record,True,False,True,True,"[""record count=132 != rows*columns=133"", ""missing record indices: [(6, 18)]""]"
+duplicate_record,True,False,True,False,"[""record count=134 != rows*columns=133"", ""duplicate record index (0,0)""]"
+out_of_bounds_index,True,False,True,True,"[""record 0 index (7,0) is out of bounds"", ""missing record indices: [(0, 0)]""]"
+wrong_declared_shape,True,False,True,True,"[""AI row_count=8 != tool rows=7""]"
+wrong_matrix_dimension,True,False,True,True,"[""matrix row dimension must equal 7""]"

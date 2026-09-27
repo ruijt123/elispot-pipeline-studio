@@ -1,0 +1,4 @@
+stage,evaluable_cells,all_cell_exact_matches,all_cell_accuracy,printed_integer_cells,printed_integer_exact_matches,printed_integer_accuracy,false_negative_numeric,false_positive_numeric,wrong_numeric_value
+initial_indexed,899,819,0.9110122358175751,399,320,0.8020050125313283,42,1,37
+automatic_route_pre_local_reread,899,838,0.932146829810901,399,339,0.849624060150376,1,1,59
+final_after_disagreement_reread,899,897,0.9977753058954394,399,398,0.9974937343358395,1,1,0
