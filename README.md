@@ -20,8 +20,8 @@ scientific heatmaps and linking it to supplementary reference tables.
   Numeric confidence thresholds are not used.
 - Colour-only heatmaps are detected structurally, but numeric values are left
   missing unless publisher source data provide them.
-- Stage 1-4 can run without a supplement. Stage 5-6 runs only when a compatible
-  supplementary table is available.
+- The reader-facing Streamlit application runs the complete Stage 1-6 workflow
+  and therefore requires both the main paper and a compatible supplement.
 - A separate cell-level analysis command creates a manual validation template
   when ground truth is absent and computes error boundaries only from supplied,
   source-backed ground truth.

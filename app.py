@@ -125,13 +125,12 @@ def save_upload(upload, destination: Path) -> Path:
     return destination
 
 
-def job_id_for(paper, supplement, pages: list[int] | None, run_stage56: bool) -> str:
+def job_id_for(paper, supplement, pages: list[int] | None) -> str:
     digest = hashlib.sha256()
     digest.update(paper.getvalue())
     if supplement is not None:
         digest.update(supplement.getvalue())
     digest.update(json.dumps(pages).encode())
-    digest.update(str(run_stage56).encode())
     return digest.hexdigest()[:12]
 
 
@@ -224,8 +223,8 @@ def show_stage6(run_root: Path) -> None:
     st.dataframe(final, use_container_width=True, hide_index=True, height=420)
 
 
-def run_pipeline(paper_upload, supplement_upload, api_key: str, pages: list[int] | None, run_stage56: bool) -> Path:
-    job_id = job_id_for(paper_upload, supplement_upload, pages, run_stage56)
+def run_pipeline(paper_upload, supplement_upload, api_key: str, pages: list[int] | None) -> Path:
+    job_id = job_id_for(paper_upload, supplement_upload, pages)
     workspace = APP_ROOT / "tool_runs" / job_id
     input_dir = workspace / "inputs"
     paper_path = save_upload(paper_upload, input_dir / f"main{Path(paper_upload.name).suffix.lower()}")
@@ -242,8 +241,6 @@ def run_pipeline(paper_upload, supplement_upload, api_key: str, pages: list[int]
         ("Stage 5", "提取补充材料表格", runner._run_stage5),
         ("Stage 6", "合并并生成最终结果", runner._run_stage6),
     ]
-    if not run_stage56:
-        steps = steps[:5]
     progress = st.progress(0, text="准备运行")
     status = st.status("ELISpot pipeline 正在运行", expanded=True)
     old_key = os.environ.get("DASHSCOPE_API_KEY")
@@ -254,9 +251,9 @@ def run_pipeline(paper_upload, supplement_upload, api_key: str, pages: list[int]
             function()
             progress.progress(index / len(steps), text=f"{stage} 完成")
         runner.manifest["status"] = "complete"
+        runner.manifest["completed_through"] = "stage6"
         runner.manifest_path.write_text(json.dumps(runner.manifest, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
-        runner.manifest["completed_through"] = "stage6" if run_stage56 else "stage4"
-        status.update(label=f"Stage 1–{'6' if run_stage56 else '4'} 完成", state="complete", expanded=False)
+        status.update(label="Stage 1–6 完成", state="complete", expanded=False)
     finally:
         if old_key is None:
             os.environ.pop("DASHSCOPE_API_KEY", None)
@@ -296,12 +293,7 @@ with st.sidebar:
     st.markdown("### 运行控制台")
     st.caption("密钥仅保存在当前运行进程的内存中，不会写入 Notebook 或输出文件。")
     api_key = st.text_input("DashScope API Key", type="password", placeholder="sk-…", help="用于图像与表格的 AI 识别步骤")
-    run_scope = st.radio(
-        "运行范围",
-        ["Stage 1–4（热图检测与数值提取）", "Stage 1–6（含补充材料关联）"],
-        index=0,
-    )
-    run_stage56 = run_scope.startswith("Stage 1–6")
+    st.success("固定运行完整 Stage 1–6")
     page_mode = st.selectbox(
         "主论文处理范围",
         ["All（整篇论文）", "Other（指定页码）"],
@@ -329,9 +321,9 @@ with left:
     paper_upload = st.file_uploader("① 上传主论文 PDF", type=["pdf"], help="建议先上传只含目标页的 PDF 进行快速测试")
 with right:
     supplement_upload = st.file_uploader(
-        "② 上传补充材料" + ("（Stage 5–6 必需）" if run_stage56 else "（可选）"),
+        "② 上传补充材料（Stage 5–6 必需）",
         type=["pdf", "xlsx", "xls", "csv", "tsv"],
-        help="没有补充材料时可运行 Stage 1–4；Stage 5–6 需要 PDF 或表格来源。",
+        help="Stage 5–6 使用 PDF 或表格形式的补充材料建立 epitope 参考表并完成最终关联。",
     )
 
 try:
@@ -345,7 +337,7 @@ except Exception as exc:
 paper_ok = paper_upload is not None
 supplement_ok = supplement_upload is not None
 key_ok = bool(api_key.strip())
-ready = paper_ok and (supplement_ok or not run_stage56) and key_ok and page_error is None
+ready = paper_ok and supplement_ok and key_ok and page_error is None
 
 def ready_row(done: bool, text: str) -> str:
     dot = "dot-ok" if done else "dot-wait"
@@ -354,16 +346,16 @@ def ready_row(done: bool, text: str) -> str:
 st.markdown(
     '<div class="ready-box"><strong>运行前检查</strong>'
     + ready_row(paper_ok, f"主论文：{paper_upload.name}" if paper_ok else "等待上传主论文 PDF")
-    + ready_row(supplement_ok or not run_stage56, f"补充材料：{supplement_upload.name}" if supplement_ok else "Stage 1–4 不要求补充材料")
+    + ready_row(supplement_ok, f"补充材料：{supplement_upload.name}" if supplement_ok else "等待上传补充材料")
     + ready_row(key_ok, "API Key 已就绪" if key_ok else "等待在左侧填写 API Key")
     + ready_row(page_error is None, f"处理页码：{', '.join(map(str, pages)) if pages else '整篇论文'}")
     + "</div>",
     unsafe_allow_html=True,
 )
 
-if st.button(f"开始运行 Stage 1–{'6' if run_stage56 else '4'}", type="primary", disabled=not ready, use_container_width=True):
+if st.button("开始运行 Stage 1–6", type="primary", disabled=not ready, use_container_width=True):
     try:
-        st.session_state["last_run_root"] = str(run_pipeline(paper_upload, supplement_upload, api_key, pages, run_stage56))
+        st.session_state["last_run_root"] = str(run_pipeline(paper_upload, supplement_upload, api_key, pages))
     except Exception as exc:
         st.exception(exc)
 
