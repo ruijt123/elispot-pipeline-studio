@@ -1,0 +1,52 @@
+{
+  "row_index": 4,
+  "column_start": 14,
+  "column_end": 19,
+  "cells_by_key": {
+    "C14": {
+      "token_type": "printed_integer",
+      "value_numeric": 10,
+      "value_text": "10",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C15": {
+      "token_type": "printed_integer",
+      "value_numeric": 41,
+      "value_text": "41",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C16": {
+      "token_type": "printed_integer",
+      "value_numeric": 10,
+      "value_text": "10",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C17": {
+      "token_type": "printed_integer",
+      "value_numeric": 130,
+      "value_text": "130",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C18": {
+      "token_type": "printed_integer",
+      "value_numeric": 14,
+      "value_text": "14",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C19": {
+      "token_type": "printed_integer",
+      "value_numeric": 32,
+      "value_text": "32",
+      "manual_review": false,
+      "review_reason": ""
+    }
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

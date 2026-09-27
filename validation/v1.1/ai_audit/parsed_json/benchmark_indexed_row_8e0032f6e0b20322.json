@@ -1,0 +1,100 @@
+{
+  "row_index": 0,
+  "column_count": 13,
+  "cells_by_key": {
+    "C00": {
+      "token_type": "printed_integer",
+      "value_numeric": 14,
+      "value_text": "14",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C01": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C02": {
+      "token_type": "printed_integer",
+      "value_numeric": 39,
+      "value_text": "39",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C03": {
+      "token_type": "printed_integer",
+      "value_numeric": 226,
+      "value_text": "226",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C04": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C05": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C06": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C07": {
+      "token_type": "printed_integer",
+      "value_numeric": 93,
+      "value_text": "93",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C08": {
+      "token_type": "printed_integer",
+      "value_numeric": 106,
+      "value_text": "106",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C09": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C10": {
+      "token_type": "printed_integer",
+      "value_numeric": 37,
+      "value_text": "37",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C11": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C12": {
+      "token_type": "printed_integer",
+      "value_numeric": 0,
+      "value_text": "0",
+      "manual_review": false,
+      "review_reason": ""
+    }
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

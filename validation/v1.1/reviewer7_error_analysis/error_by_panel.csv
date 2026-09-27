@@ -1,0 +1,5 @@
+panel_id,n,errors,error_rate,insufficient_sample
+C,39,0,0.0,False
+F,39,0,0.0,False
+H,133,0,0.0,False
+I,100,1,0.01,False

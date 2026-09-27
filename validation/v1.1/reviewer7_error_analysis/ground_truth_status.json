@@ -1,0 +1,7 @@
+{
+  "ground_truth_available": true,
+  "ground_truth_path": "<PROJECT_ROOT>\\reviewer_comment_7_outputs\\cell_level_validation.csv",
+  "validated_cell_count": 311,
+  "error_analysis_generated": true,
+  "uses_fabricated_ground_truth": false
+}

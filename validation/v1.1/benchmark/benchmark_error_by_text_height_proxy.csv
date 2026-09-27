@@ -1,0 +1,5 @@
+text_height_proxy_bin,n,errors,error_rate,insufficient_sample
+"(1.999, 6.5]",132,0,0.0,False
+"(6.5, 7.0]",118,0,0.0,False
+"(7.0, 9.0]",160,0,0.0,False
+"(9.0, 21.0]",81,1,0.012345679012345678,False

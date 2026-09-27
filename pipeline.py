@@ -1,6 +1,7 @@
 """One-command ELISpot reconstruction pipeline (Stages 1-6).
 
-Example:
+Examples:
+    python pipeline.py --paper main.pdf --stop-after stage4
     python pipeline.py --paper main.pdf --supplement supplement.pdf
 """
 
@@ -71,13 +72,22 @@ def _figure_ids_for_assay(stage2_summary: Path, assay: str) -> list[str]:
     return selected
 
 
-def preflight(paper: Path, supplement: Path, notebook: Path, require_ai: bool = True) -> dict[str, Any]:
+def preflight(
+    paper: Path,
+    supplement: Path | None,
+    notebook: Path,
+    require_ai: bool = True,
+    require_supplement: bool = True,
+) -> dict[str, Any]:
     _require_file(paper, "Main paper")
-    _require_file(supplement, "Supplement")
+    if require_supplement and supplement is None:
+        raise ValueError("A supplement is required for Stage 5-6.")
+    if supplement is not None:
+        _require_file(supplement, "Supplement")
     _require_file(notebook, "Legacy pipeline notebook")
     if paper.suffix.lower() != ".pdf":
         raise ValueError("The current Stage 1 requires the main paper as a PDF.")
-    if supplement.suffix.lower() not in {".pdf", ".xlsx", ".xls", ".csv", ".tsv"}:
+    if supplement is not None and supplement.suffix.lower() not in {".pdf", ".xlsx", ".xls", ".csv", ".tsv"}:
         raise ValueError("Supplement must be PDF, XLSX, XLS, CSV, or TSV.")
     dependencies = {}
     for module in ["fitz", "cv2", "numpy", "pandas", "PIL", "openai"]:
@@ -92,7 +102,8 @@ def preflight(paper: Path, supplement: Path, notebook: Path, require_ai: bool = 
     if require_ai:
         _require_ai_credentials()
     return {
-        "paper": str(paper.resolve()), "supplement": str(supplement.resolve()),
+        "paper": str(paper.resolve()),
+        "supplement": str(supplement.resolve()) if supplement is not None else None,
         "notebook": str(notebook.resolve()), "dependencies": dependencies,
         "dashscope_key": "set" if os.getenv("DASHSCOPE_API_KEY") else "missing",
     }
@@ -100,14 +111,14 @@ def preflight(paper: Path, supplement: Path, notebook: Path, require_ai: bool = 
 
 class ELISpotPipeline:
     def __init__(
-        self, paper: str | Path, supplement: str | Path, *,
+        self, paper: str | Path, supplement: str | Path | None = None, *,
         output_root: str | Path = "pipeline_runs", notebook: str | Path = DEFAULT_NOTEBOOK,
         assay: str = "ELISpot", stage3_model: str = "qwen3-vl-plus",
         legend_model: str = "qwen3.7-plus", stage4_model: str = "qwen3-vl-plus",
         resume: bool = True, pages: list[int] | None = None,
     ):
         self.paper = Path(paper).resolve()
-        self.supplement = Path(supplement).resolve()
+        self.supplement = Path(supplement).resolve() if supplement is not None else None
         self.notebook = Path(notebook).resolve()
         self.assay = assay
         self.stage3_model = stage3_model
@@ -121,17 +132,22 @@ class ELISpotPipeline:
         self.run_root = Path(output_root).resolve() / run_name
         self.manifest_path = self.run_root / "pipeline_manifest.json"
         fresh_manifest = {
-            "pipeline": "ELISpot Stage 1-6", "created_at": _now(),
-            "paper": str(self.paper), "supplement": str(self.supplement),
+            "pipeline": "Structure-constrained heatmap extraction Stage 1-6",
+            "pipeline_version": "1.1",
+            "created_at": _now(),
+            "paper": str(self.paper),
+            "supplement": str(self.supplement) if self.supplement is not None else None,
             "assay": assay, "main_paper_pages": self.pages or "all",
             "run_root": str(self.run_root), "stages": {},
+            "uses_numeric_confidence_threshold": False,
+            "numeric_value_from_colour_allowed": False,
         }
         if resume and self.manifest_path.exists():
             try:
                 existing = _read_json(self.manifest_path)
                 same_inputs = (
                     existing.get("paper") == str(self.paper)
-                    and existing.get("supplement") == str(self.supplement)
+                    and existing.get("supplement") == (str(self.supplement) if self.supplement is not None else None)
                 )
                 self.manifest = existing if same_inputs else fresh_manifest
             except (OSError, ValueError, TypeError):
@@ -156,7 +172,14 @@ class ELISpotPipeline:
         if stop_after not in STAGE_ORDER + [None]:
             raise ValueError(f"stop_after must be one of {STAGE_ORDER}")
         self.run_root.mkdir(parents=True, exist_ok=True)
-        preflight_info = preflight(self.paper, self.supplement, self.notebook, require_ai=False)
+        requires_supplement = stop_after not in {"stage1", "stage2", "stage3", "stage3bc", "stage4"}
+        preflight_info = preflight(
+            self.paper,
+            self.supplement,
+            self.notebook,
+            require_ai=False,
+            require_supplement=requires_supplement,
+        )
         self.manifest["preflight"] = preflight_info
         _write_json(self.manifest_path, self.manifest)
         try:
@@ -189,7 +212,7 @@ class ELISpotPipeline:
         out = self._stage_dir("stage1")
         summary = out / "stage1_summary.json"
         if self._reuse("stage1", [summary]): return
-        lib = load_stage("stage1", self.notebook)
+        lib = load_stage("stage1", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.process_pdf_stage1(
             pdf_path=str(self.paper), pages=self.pages, out_root=str(out),
             source_doc=self.paper.name, source_section="main_article",
@@ -200,7 +223,7 @@ class ELISpotPipeline:
         out = self._stage_dir("stage2")
         summary = out / "stage2_summary.json"
         if self._reuse("stage2", [summary]): return
-        lib = load_stage("stage2", self.notebook)
+        lib = load_stage("stage2", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.process_stage2_from_stage1(
             stage1_summary_path=str(self._stage_dir("stage1") / "stage1_summary.json"),
             out_root=str(out), use_filter=False,
@@ -215,7 +238,7 @@ class ELISpotPipeline:
         figure_ids = _figure_ids_for_assay(stage2_summary, self.assay)
         if not figure_ids:
             raise RuntimeError(f"Stage 2 found no figure legend containing assay '{self.assay}'.")
-        lib = load_stage("stage3", self.notebook)
+        lib = load_stage("stage3", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.process_stage3_heatmaps_from_stage2(
             stage2_summary_path=str(stage2_summary), out_root=str(out),
             model_name=self.stage3_model, target_assay=self.assay,
@@ -229,7 +252,7 @@ class ELISpotPipeline:
         out = self._stage_dir("stage3bc")
         handoff = out / "Stage3C_Clean_Handoff_Manifest.xlsx"
         if self._reuse("stage3bc", [handoff]): return
-        lib = load_stage("stage3bc", self.notebook)
+        lib = load_stage("stage3bc", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.run_stage3b3c_panel_recovery_and_legend_extraction(
             stage3_selected_manifest_path=str(self._stage_dir("stage3") / "stage3_selected_heatmap_context_manifest.xlsx"),
             stage2_summary_path=str(self._stage_dir("stage2") / "stage2_summary.json"),
@@ -241,7 +264,7 @@ class ELISpotPipeline:
         out = self._stage_dir("stage4")
         records = out / "Stage4_Cell_Records.xlsx"
         if self._reuse("stage4", [records]): return
-        lib = load_stage("stage4", self.notebook)
+        lib = load_stage("stage4", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.run_stage4_generic_all_selected(
             stage3_selected_manifest_path=str(self._stage_dir("stage3bc") / "Stage3C_Clean_Handoff_Manifest.xlsx"),
             out_root=str(out), model_name=self.stage4_model, debug_display=False,
@@ -251,6 +274,8 @@ class ELISpotPipeline:
         self._record("stage4", "complete", records=str(records), qc=result.get("qc", {}))
 
     def _run_stage5(self) -> None:
+        if self.supplement is None:
+            raise RuntimeError("Stage 5 requires a supplementary PDF or table file.")
         out = self._stage_dir("stage5")
         reference = out / "Epitope_Reference_Table_FINAL.xlsx"
         if self._reuse("stage5", [reference]): return
@@ -263,7 +288,7 @@ class ELISpotPipeline:
         out = self._stage_dir("stage6")
         final = out / "Stage6_Final_ELISpot_Output.xlsx"
         if self._reuse("stage6", [final]): return
-        lib = load_stage("stage6", self.notebook)
+        lib = load_stage("stage6", self.notebook, run_root=self.run_root, paper_id=_slug(self.paper))
         result = lib.run_stage6_final_elispot_merge(
             stage4_cell_records_paths=[str(self._stage_dir("stage4") / "Stage4_Cell_Records.xlsx")],
             reference_table_path=str(self._stage_dir("stage5") / "Epitope_Reference_Table_FINAL.xlsx"),
@@ -275,7 +300,7 @@ class ELISpotPipeline:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--paper", required=True, help="Main-paper PDF")
-    parser.add_argument("--supplement", required=True, help="Supplement PDF/XLSX/XLS/CSV/TSV")
+    parser.add_argument("--supplement", help="Supplement PDF/XLSX/XLS/CSV/TSV; optional when stopping at Stage 4")
     parser.add_argument("--output-root", default="pipeline_runs")
     parser.add_argument("--assay", default="ELISpot")
     parser.add_argument("--pages", nargs="+", type=int, help="Only process these 1-based main-paper pages, e.g. --pages 3 4")
@@ -284,10 +309,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--stop-after", choices=STAGE_ORDER)
     parser.add_argument("--preflight", action="store_true", help="Validate inputs/dependencies only")
     args = parser.parse_args(argv)
-    paper, supplement, notebook = Path(args.paper), Path(args.supplement), Path(args.notebook)
+    paper = Path(args.paper)
+    supplement = Path(args.supplement) if args.supplement else None
+    notebook = Path(args.notebook)
     if args.preflight:
-        print(json.dumps(preflight(paper, supplement, notebook, require_ai=True), ensure_ascii=False, indent=2))
+        print(json.dumps(preflight(
+            paper, supplement, notebook, require_ai=True,
+            require_supplement=supplement is not None,
+        ), ensure_ascii=False, indent=2))
         return 0
+    if supplement is None and args.stop_after not in {"stage1", "stage2", "stage3", "stage3bc", "stage4"}:
+        parser.error("--supplement is required unless --stop-after is stage1, stage2, stage3, stage3bc, or stage4")
     pipeline = ELISpotPipeline(
         paper, supplement, output_root=args.output_root, notebook=notebook,
         assay=args.assay, resume=not args.no_resume, pages=args.pages,

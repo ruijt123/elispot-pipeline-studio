@@ -1,0 +1,29 @@
+{
+  "row_index": 2,
+  "column_count": 20,
+  "cells_by_key": {
+    "C00": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C01": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C02": {"token_type": "printed_integer", "value_numeric": 92, "value_text": "92", "manual_review": false, "review_reason": ""},
+    "C03": {"token_type": "printed_integer", "value_numeric": 75, "value_text": "75", "manual_review": false, "review_reason": ""},
+    "C04": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C05": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C06": {"token_type": "printed_integer", "value_numeric": 111, "value_text": "111", "manual_review": false, "review_reason": ""},
+    "C07": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C08": {"token_type": "printed_integer", "value_numeric": 23, "value_text": "23", "manual_review": false, "review_reason": ""},
+    "C09": {"token_type": "printed_integer", "value_numeric": 4, "value_text": "4", "manual_review": false, "review_reason": ""},
+    "C10": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C11": {"token_type": "printed_integer", "value_numeric": 16, "value_text": "16", "manual_review": false, "review_reason": ""},
+    "C12": {"token_type": "printed_integer", "value_numeric": 17, "value_text": "17", "manual_review": false, "review_reason": ""},
+    "C13": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C14": {"token_type": "printed_integer", "value_numeric": 5, "value_text": "5", "manual_review": false, "review_reason": ""},
+    "C15": {"token_type": "printed_integer", "value_numeric": 12, "value_text": "12", "manual_review": false, "review_reason": ""},
+    "C16": {"token_type": "printed_integer", "value_numeric": 1, "value_text": "1", "manual_review": false, "review_reason": ""},
+    "C17": {"token_type": "printed_integer", "value_numeric": 3, "value_text": "3", "manual_review": false, "review_reason": ""},
+    "C18": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""},
+    "C19": {"token_type": "printed_integer", "value_numeric": 0, "value_text": "0", "manual_review": false, "review_reason": ""}
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

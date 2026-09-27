@@ -1,0 +1,8 @@
+paper_id,panels,integrated_cells,linked_cells,image_numeric_cells,supplementary_numeric_source_cells,manual_review_cells,stage5_status,stage6_status,stage6_scope
+fan_2024,4.0,311.0,311.0,311.0,0.0,0.0,complete,complete,cell semantic annotation for 311 cells
+braun_2025,1.0,252.0,252.0,9.0,232.0,2.0,complete,complete,cell numeric source plus peptide annotation for 252 cells
+lindner_2025,0.0,0.0,0.0,0.0,0.0,0.0,excluded,excluded,
+haars_2021,0.0,0.0,0.0,0.0,0.0,0.0,excluded,excluded,
+zhang_2024,1.0,152.0,152.0,0.0,152.0,0.0,complete,complete,cell numeric source plus peptide annotation for 152 cells
+geiger_2020,0.0,0.0,0.0,0.0,0.0,0.0,excluded,excluded,
+hhv6_2015,1.0,265.0,265.0,0.0,0.0,0.0,complete,complete_row_level_only,pool-level summary and peptide annotation for 265 cells

@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-09-26T18:19:38.442676+00:00",
+  "panels": 10,
+  "papers": 7,
+  "total_cells": 1876,
+  "numeric_panels": 6,
+  "color_only_panels": 4,
+  "correct_color_only_abstentions": 4,
+  "uses_numeric_confidence_threshold": false,
+  "numeric_values_inferred_from_color": false,
+  "model": "qwen3-vl-plus"
+}

@@ -1,0 +1,7 @@
+benchmark_id,n,errors,error_rate,insufficient_sample
+B01,133,0,0.0,False
+B02,39,0,0.0,False
+B03,39,0,0.0,False
+B04,100,0,0.0,False
+B05,252,2,0.007936507936507936,False
+B07,336,0,0.0,False

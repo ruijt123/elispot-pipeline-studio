@@ -1,0 +1,142 @@
+{
+  "row_index": 6,
+  "column_count": 19,
+  "cells_by_key": {
+    "C00": {
+      "token_type": "printed_integer",
+      "value_numeric": 4,
+      "value_text": "4",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C01": {
+      "token_type": "printed_integer",
+      "value_numeric": 7,
+      "value_text": "7",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C02": {
+      "token_type": "printed_integer",
+      "value_numeric": 28,
+      "value_text": "28",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C03": {
+      "token_type": "printed_integer",
+      "value_numeric": 5,
+      "value_text": "5",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C04": {
+      "token_type": "printed_integer",
+      "value_numeric": 4,
+      "value_text": "4",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C05": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C06": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C07": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C08": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C09": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C10": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C11": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C12": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C13": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C14": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C15": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C16": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C17": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    },
+    "C18": {
+      "token_type": "no_printed_number",
+      "value_numeric": null,
+      "value_text": "",
+      "manual_review": false,
+      "review_reason": ""
+    }
+  },
+  "manual_review": false,
+  "review_reason": "",
+  "confidence": "high"
+}

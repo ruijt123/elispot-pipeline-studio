@@ -1,0 +1,1925 @@
+{
+  "metadata": {
+    "model": "qwen3-vl-plus",
+    "temperature": 0.0,
+    "top_p": 0.01,
+    "max_retries": 1,
+    "uses_numeric_confidence_threshold": false
+  },
+  "prompts": [
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 0.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":0,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "6ebc796424efa330a4916a6f1aa6ba7724829a8db400a069f7c1e9cef28a738e",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 1.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":1,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "d73113b3dfd71af5b6bda007792fb82274d53c7638d902e9b524ddf9d5aa834a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 2.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":2,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "be945b3512a2a1cc3d6228d1112014eb1f7b8c2568e02c1fa186704a80d01774",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 3.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":3,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "fc9606e1797def1ba26b30406f527cb54235867c0e52e1e5e56f2c48fce9284e",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 4.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":4,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "b122e293c58c12af09a3e808b259246be07015f24dc5093d11c23bc2921fb8e9",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 5.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":5,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ff921df11a02967b43de060a3ca72c8a735c084fb7748eb47c6b0c501c13aa1a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 7 rows and 19 columns; this atlas is row 6.\nEach tile is an independent cell and is labelled CELL C00 through CELL C18. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":6,\"column_count\":19,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "5d3b4c7d87e1ee2482b57f47dad0d89ee571d87c25982392158bd07a0810348c",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 3 rows and 13 columns; this atlas is row 0.\nEach tile is an independent cell and is labelled CELL C00 through CELL C12. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":0,\"column_count\":13,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C12. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "d96ac3a6265f4c59495f3d6bdbb6991dd3e1c3d9d85af5d00a1bdb6af97bcecd",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 3 rows and 13 columns; this atlas is row 1.\nEach tile is an independent cell and is labelled CELL C00 through CELL C12. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":1,\"column_count\":13,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C12. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "dc0bddb28264adb050d10033d92b4dd1bfce9e897b0f8cfaad5e45cd33254cfd",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 3 rows and 13 columns; this atlas is row 2.\nEach tile is an independent cell and is labelled CELL C00 through CELL C12. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":2,\"column_count\":13,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C12. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "6a6aa672f97c6bbcdeff876d0e38ce971d09b8fe393b3481bac475d4aadac98d",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 5 rows and 20 columns; this atlas is row 0.\nEach tile is an independent cell and is labelled CELL C00 through CELL C19. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":0,\"column_count\":20,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ab60007e17272480374ea51a5d00d5bc86af0892c034c40c082e83c05ca9bb87",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 5 rows and 20 columns; this atlas is row 1.\nEach tile is an independent cell and is labelled CELL C00 through CELL C19. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":1,\"column_count\":20,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "fda5ff39219480d5f718c702a92ba9573cbc18aaba4d6f217fd72a150dbd0fb6",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 5 rows and 20 columns; this atlas is row 2.\nEach tile is an independent cell and is labelled CELL C00 through CELL C19. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":2,\"column_count\":20,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ceabe16f49f5a3203ae75ea3afd930b3bc35524af6ba7347caa242a517fc50e6",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 5 rows and 20 columns; this atlas is row 3.\nEach tile is an independent cell and is labelled CELL C00 through CELL C19. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":3,\"column_count\":20,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "b40d2b3aafb37f46a482773fc5840f30fa93da0beb157246bb40a9cbcc6a009f",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 5 rows and 20 columns; this atlas is row 4.\nEach tile is an independent cell and is labelled CELL C00 through CELL C19. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":4,\"column_count\":20,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "97cc3180f9852dbe22bdd91bf917e86ebfa09d5e0c58ffb075aa4717875f70c4",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 0 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":0,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "df352a7fcd9fa3148cf9c596f5e30e7437151464e693d4b5b6043896d04fe118",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 1 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":1,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "1216e7dd995d62081c88b1630a21d7ca6fe1bb41d982c0ae21ed0a8bee197b79",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 2 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":2,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "08527ef3456d9d9c5680859a417fdce52b3f4004a06f54f46ecbeb9b1c2b6111",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 3 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":3,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "be39a824905f0523df91c9c89c47d3cdd3095fbfbc570fc58d332f71b362e506",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 4 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":4,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "b223671ee9ad9802b858c4905838faabbc4d21707f73eca2d18a63d0d672177d",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 5 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":5,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "e2d6214dd6deac90f25493db5107445e700969b5a50361c7e0b5a629f702dbe4",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 6 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":6,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "d5a6ae43275ebb2ad8241e792ce8d9b06007bc8781e68ac68c86fba0baa219f8",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 7 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":7,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "a5e545a76fec3439091c2d7df4b30aa3e5d3429c58351786f9a374dd8471d60f",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_block",
+      "prompt_version": "benchmark_indexed_block_v1.0",
+      "full_prompt_or_template": "Read one tool-segmented heatmap block. It is block 8 and has exactly 4 rows by 7 columns.\nEach tile is an independent cell labelled CELL R00C00 through CELL R03C06. Inspect only the pixels inside the tile carrying the exact label. Do not shift values. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only:\n{\"block_index\":8,\"row_count\":4,\"column_count\":7,\"cells_by_key\":{\"R00C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain every key R00C00 through R03C06 exactly once. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "890fb656842c9c323f2dfb67b81af3fc23bc2dcd13a6d657831341629b8048db",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "block_index",
+          "row_count",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly R00C00..RrrCcc",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 0.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":0,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ed19dd9d5aed025dc807e0567d3f34397ec1f65ec72fc6b59235ed54cee9fa97",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 1.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":1,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "76a76af6ee5d98e8dd95813374135e810c456d9e14790c8fc84ba72a084086a6",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 2.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":2,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "75a961b9296608b99b15f4e80b823e3d2ea39a06914f75ee63cb3632752a18b7",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 3.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":3,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "61fa0fe8ffdc4f422713d9757cfa7215df06e06bfc9e89b8fd6ba647070e8cd8",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 4.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":4,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "7882156d0d9fc413c7a5b347841bcc040fcdbbaaa69d8bd0778b5ea02799e380",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 5.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":5,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "773120574c094034f91b652c8b40e36808d97960c9f939ff1cc33910cadef54e",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 6.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":6,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "12bcb301b642a79ee3e05a85952ea0549232736e487f32199b271a983812262a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 7.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":7,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "a13fcba6816da1c735a15a7eba45c3378c0e666c049ded4b6a1b86d6d8aadaae",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 8.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":8,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "d510a839b1440f55d570d3aadd5307a129bc67801345fa03e8316b7c751b1231",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 9.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":9,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "3c6ded80db7bea3c0ce893ee812bf2e81ffea89d1757963ca35813eec318ed35",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 10.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":10,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "7faf762dfd4e4043d6c71adbead60055c1c1ef66191cf553fed11280e9b63be4",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 11.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":11,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "546d16a677375b0d17d26ab8bec8f6efffec8ed3ee70a34835abf6bd1dab729a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 12.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":12,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "cd505442b08b1ddfcc58012a2287ac126c680e6f4771917f258d3c0d48a9f00a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 13.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":13,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "47f4db680ec18fd290aa60db704cb7e265582f400ed2ea3e97476edddc85aea4",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 14.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":14,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "8af9114cefc8bada84cb5d49ddc6911d10645107d53379e4b3018016be38de6c",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_indexed_row",
+      "prompt_version": "benchmark_indexed_row_v1.2",
+      "full_prompt_or_template": "Read exactly one tool-segmented row of a scientific heatmap. The full matrix has 16 rows and 21 columns; this atlas is row 15.\nEach tile is an independent cell and is labelled CELL C00 through CELL C20. Inspect only the pixels inside the tile with that label. Do not move values between cells. Do not infer numbers from colour.\n\nUse token_type: printed_integer for a complete visible integer; dash for a visible dash; missing for an explicit missing/not-tested marker; no_printed_number when no number is printed; unreadable when text may exist but cannot be read reliably. Only printed_integer may have an integer value_numeric. All other value_numeric fields must be null.\n\nReturn JSON only with this exact structure:\n{\"row_index\":15,\"column_count\":21,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00 through C20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "fab980c1ece5c72a72eda8d8aedf22b5b43c4a889fdef3c8a31ad36b46d92da5",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_count",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "cell_keys": "exactly C00..Cnn",
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_dense_fixed_shape_matrix",
+      "prompt_version": "benchmark_dense_fixed_shape_matrix_v1.0",
+      "full_prompt_or_template": "Read the printed integer values in this scientific heatmap. The tool has already fixed the matrix shape at exactly 7 rows and 19 columns.\nRead left-to-right and top-to-bottom. Return exactly 7 matrix rows, each with exactly 19 entries. Preserve visible zeros. Use null only when a cell is genuinely unreadable or contains no printed integer. Do not infer any number from colour, intensity, or nearby cells. Do not add row labels or column labels to the matrix.\n\nReturn JSON only:\n{\"row_count\":7,\"column_count\":19,\"matrix\":[[0]],\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\n\nThe matrix dimensions must be exactly 7 x 19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "c56c945c5911354741c59e2a54cebcc51fbb6e4d60a5b0d871e88a6684b9ec89",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_count",
+          "column_count",
+          "matrix",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "row_count equals tool-fixed rows",
+          "column_count equals tool-fixed columns",
+          "matrix dimensions equal rows x columns",
+          "each value is an integer or null",
+          "coordinates are assigned by code"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_dense_fixed_shape_matrix",
+      "prompt_version": "benchmark_dense_fixed_shape_matrix_v1.0",
+      "full_prompt_or_template": "Read the printed integer values in this scientific heatmap. The tool has already fixed the matrix shape at exactly 3 rows and 13 columns.\nRead left-to-right and top-to-bottom. Return exactly 3 matrix rows, each with exactly 13 entries. Preserve visible zeros. Use null only when a cell is genuinely unreadable or contains no printed integer. Do not infer any number from colour, intensity, or nearby cells. Do not add row labels or column labels to the matrix.\n\nReturn JSON only:\n{\"row_count\":3,\"column_count\":13,\"matrix\":[[0]],\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\n\nThe matrix dimensions must be exactly 3 x 13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "009d0c1fd6a851301aea773e4084053a6d8fca3c057570bdfb6bbccb0fbc6840",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_count",
+          "column_count",
+          "matrix",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "row_count equals tool-fixed rows",
+          "column_count equals tool-fixed columns",
+          "matrix dimensions equal rows x columns",
+          "each value is an integer or null",
+          "coordinates are assigned by code"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_dense_fixed_shape_matrix",
+      "prompt_version": "benchmark_dense_fixed_shape_matrix_v1.0",
+      "full_prompt_or_template": "Read the printed integer values in this scientific heatmap. The tool has already fixed the matrix shape at exactly 5 rows and 20 columns.\nRead left-to-right and top-to-bottom. Return exactly 5 matrix rows, each with exactly 20 entries. Preserve visible zeros. Use null only when a cell is genuinely unreadable or contains no printed integer. Do not infer any number from colour, intensity, or nearby cells. Do not add row labels or column labels to the matrix.\n\nReturn JSON only:\n{\"row_count\":5,\"column_count\":20,\"matrix\":[[0]],\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\n\nThe matrix dimensions must be exactly 5 x 20. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "97567003a0e551d98bd623a4675f55b391170308677e89c645fb3c1d14123daf",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_count",
+          "column_count",
+          "matrix",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "row_count equals tool-fixed rows",
+          "column_count equals tool-fixed columns",
+          "matrix dimensions equal rows x columns",
+          "each value is an integer or null",
+          "coordinates are assigned by code"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 0, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":0,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "61f20deeedf96cbed350ea3530af4f09d927d276817877e42f5c0c8ba3e2773f",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 0, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":0,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "e6404d79c461c39950a5b5f47c2efb3fa1cc718fc0165c8ef9fa24116f5be130",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 1, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":1,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "101cd6074fe52d165dc70637165da2e07d208925c3f56dc00e7fd7b70ecac86a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 1, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":1,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "7ece7460793bfeeb81dddd80888b4102d1618e9c2abc653f6cf988fb4819d865",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 1, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":1,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ee178460a883e11ba7c1cd5703a1379687f827a9ec126899803f40595ed08637",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 2, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":2,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "a74af41d1f5ef9f32dd335a5708f7be295877e7339fda1afd67c3d69802a8839",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 2, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":2,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "5e68f6eadd5b4e125a82c108b557edc2feb6e29240f895451a960ef34cd6b6a5",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 2, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":2,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "a3615a16fde206ef6ecb16856225fe39294d374647b64109e113048ed3488ce6",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 3, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":3,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "a0a8ffb55b6956d05a41092858a494ebd6197aaac3948b49ffb6288092fd29f2",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 5, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":5,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "80d81247c55699fb8ae9f6cd45a91cb8706410f7a6ebd6f46dafb8e3c9d53b53",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 5, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":5,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "90b5131fd04a6ac69cef2beadfd5fec1ab45f8e80cfd6add7ff396df3fab1332",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 5, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":5,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "8b291d047d7306c8f1344e522d69018e3c664e6a538c9d483065a3b9850f6b19",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 6, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":6,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "c5e78b684afd636beb2cccdaaed3e3a1bfc1eb9fb53aeac98fb5a7b65b8fce68",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 6, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":6,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "6990d64b097d30249a8e56f98d5d71271957e867c6603413b7d9f80b9893ce1b",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.0",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 6, covering global columns 14 through 18.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":6,\"column_start\":14,\"column_end\":18,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "f337d98d8127229414c520e2200d315150f43d22ac1f5d71c0be58e35516ac2a",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 1, covering global columns 14 through 19.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18, C19. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":1,\"column_start\":14,\"column_end\":19,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18, C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "941e679abf52b63225f58056c8c068650e4f2c83c9d43f011ae97e9edb49a330",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 3, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":3,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "74b47e5dee5aa76eb7a4fc99a5f4cee9fe27c721df8003feaf3e7bb5a5baedf7",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 3, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":3,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "8dbe0c433d9949d2d8d7a229fde5cb4ceef39c4d3f494a9d97e2c136271f28dc",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 3, covering global columns 14 through 19.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18, C19. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":3,\"column_start\":14,\"column_end\":19,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18, C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "ddd8ae98c708420e7fed97923b10a9d8f63d928a4bb43444e578748fdbd08b1b",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 4, covering global columns 0 through 6.\nThe tiles appear in one horizontal line and are labelled C00, C01, C02, C03, C04, C05, C06. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":4,\"column_start\":0,\"column_end\":6,\"cells_by_key\":{\"C00\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C00, C01, C02, C03, C04, C05, C06. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "2ad3d27e5bc64ae049704aad7e4d5e81e93e66ab8a4bf4845a1491c4ccaf3a8d",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 4, covering global columns 7 through 13.\nThe tiles appear in one horizontal line and are labelled C07, C08, C09, C10, C11, C12, C13. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":4,\"column_start\":7,\"column_end\":13,\"cells_by_key\":{\"C07\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C07, C08, C09, C10, C11, C12, C13. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "b74fdc2592f2a45dad5af8d676725b05eda03efa54f6f9769e0baae2fb8d36c5",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    },
+    {
+      "task_name": "benchmark_disagreement_row_chunk",
+      "prompt_version": "benchmark_disagreement_row_chunk_v1.1",
+      "full_prompt_or_template": "Read this local, coordinate-locked chunk from one scientific heatmap row. It is tool row 4, covering global columns 14 through 19.\nThe tiles appear in one horizontal line and are labelled C14, C15, C16, C17, C18, C19. Inspect only the tile carrying each exact label. Preserve visible zeros. Do not move values between tiles and do not infer numbers from colour.\n\nUse token_type printed_integer for a complete visible integer; dash; missing; no_printed_number; or unreadable. Only printed_integer may have an integer value_numeric. All other value_numeric values must be null.\n\nReturn JSON only:\n{\"row_index\":4,\"column_start\":14,\"column_end\":19,\"cells_by_key\":{\"C14\":{\"token_type\":\"printed_integer|dash|missing|no_printed_number|unreadable\",\"value_numeric\":null,\"value_text\":\"\",\"manual_review\":false,\"review_reason\":\"\"}},\"manual_review\":false,\"review_reason\":\"\",\"confidence\":\"high|medium|low\"}\ncells_by_key must contain exactly C14, C15, C16, C17, C18, C19. Confidence is model_self_reported_confidence only. No numeric confidence threshold is used.",
+      "prompt_sha256": "bae55cac96212fc87f437b597e48ec1c3e6e3162eef229839cc03243628c1f0c",
+      "model": "qwen3-vl-plus",
+      "temperature": 0.0,
+      "top_p": 0.01,
+      "expected_json_schema": {
+        "type": "object",
+        "required": [
+          "row_index",
+          "column_start",
+          "column_end",
+          "cells_by_key",
+          "manual_review",
+          "review_reason"
+        ],
+        "shape_constraints": [
+          "cells_by_key contains exactly the tool-listed columns",
+          "coordinates assigned by code"
+        ],
+        "allowed_token_types": [
+          "printed_integer",
+          "dash",
+          "missing",
+          "no_printed_number",
+          "unreadable"
+        ]
+      },
+      "uses_numeric_confidence_threshold": false
+    }
+  ]
+}

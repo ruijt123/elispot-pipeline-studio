@@ -1,0 +1,4 @@
+transition,n,errors,error_rate,insufficient_sample
+falling,28,0,0.0,False
+rising,62,0,0.0,False
+unchanged,24,0,0.0,False
