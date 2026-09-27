@@ -4,6 +4,13 @@ A Streamlit and command-line implementation of a six-stage,
 structure-constrained workflow for recovering cell-level experimental data from
 scientific heatmaps and linking it to supplementary reference tables.
 
+**Reader-facing web application:**
+[Launch the complete Stage 1-6 workflow](https://elispot-pipeline-studio-dltng6s7nq7oqxijm5jjjx.streamlit.app/)
+
+The web application accepts a main-paper PDF, a compatible supplementary PDF
+or table, and the reader's own DashScope API key. It runs the complete six-stage
+workflow and provides staged review tables plus downloadable results.
+
 ## What changed in v1.1
 
 - A generic heatmap proposal ensemble combines grid, colour-region,
